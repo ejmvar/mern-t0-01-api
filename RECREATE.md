@@ -36,3 +36,7 @@ Feriado
   > // NOTE: may be forced if not available (INTERESANTE!)
 
   > // TODO:  optional fields
+
+  > TODO: return error messages on every failed call
+    > // NOTE:  return res.status(400).send(msg);
+    
