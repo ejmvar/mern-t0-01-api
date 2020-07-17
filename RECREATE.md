@@ -23,6 +23,13 @@ npm i  envalid
 ``` sh
 node db.js
 npm i -g nodemon
-nodemon db.js
+nodemon index.js
 
 ```
+
+## Models
+
+Feriado
+
+  // NOTE: may be forced if not available (INTERESANTE!)
+
