@@ -31,6 +31,10 @@ nodemon index.js
 
 Feriado
 
+TODO: at this point, it's ignoring:
+* results for different year/month
+* "opcional" and related values
+
 ## TODO (and other notes)
 
   > // NOTE: may be forced if not available (INTERESANTE!)
@@ -38,5 +42,5 @@ Feriado
   > // TODO:  optional fields
 
   > TODO: return error messages on every failed call
+
     > // NOTE:  return res.status(400).send(msg);
-    
