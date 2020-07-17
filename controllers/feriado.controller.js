@@ -122,7 +122,6 @@ route.put('/:id', (req, res) => {
 })
 
 
-// route.get('/by/:id', (req, res) => {
 route.get('/:id', (req, res) => {
   // NOTE: refactor using recId
   const recId = req.params.id;
@@ -132,21 +131,8 @@ route.get('/:id', (req, res) => {
     console.error(msg);
     return res.status(400).send(msg);
   } else {
-    // var rec = {
-    //   motivo: req.body.motivo,
-    //   tipo: req.body.tipo,
-    //   dia: req.body.dia,
-    //   mes: req.body.mes,
-    //   id: req.body.id,
-    //   // TODO:  optional fields
-    //   original: req.body.original,
-    //   opcional: req.body.opcional,
-    //   religion: req.body.religion,
-    //   origen: req.body.origen,
-    // };
 
     Feriado.findById(recId, {
-      // $set: updatedRecord
     }, (err, doc) => {
       if (err) {
         const msg = ("Failed getOne for id:", recId, JSON.stringify(err, undefined, 2));
