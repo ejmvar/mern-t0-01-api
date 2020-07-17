@@ -88,12 +88,15 @@ route.post('/many', (req, res) => {
 route.put('/:id', (req, res) => {
   // NOTE: refactor using recId
   const recId = req.params.id;
+  const recBdy = req.body;
+  console.warn("PUT ID:", recId);
+  console.warn("PUT BODY:", recBdy);
   if (!ObjId.isValid(recId)) {
     const msg = ("Failed update due to invalid id:", recId);
     console.error(msg);
     return res.status(400).send(msg);
   } else {
-    var rec = {
+    var rec = new Feriado({
       motivo: req.body.motivo,
       tipo: req.body.tipo,
       dia: req.body.dia,
@@ -104,20 +107,36 @@ route.put('/:id', (req, res) => {
       opcional: req.body.opcional,
       religion: req.body.religion,
       origen: req.body.origen,
-    };
+    });
 
-    Feriado.findByIdAndUpdate(recId, {
-      $set: updatedRecord
-    }, (err, doc) => {
-      if (err) {
-        const msg = ("Failed update for id:", recId, JSON.stringify(err, undefined, 2));
-        console.error(msg);
-        return res.status(400).send(msg);
-      } else {
-        console.log("Done update for id", JSON.stringify(rec, undefined, 2));
-        res.send(doc)
-      }
-    })
+    Feriado.findByIdAndUpdate(
+      // NOTE: Search object
+      //recId, 
+      {
+        _id: recId
+      },
+      // NOTE: Update/Replacement object
+      // rec.body,
+      recBdy,
+      // {
+      //   // // Feriado.findOneAndReplace(recId, {
+      //   // // TODO: test if this updated existing data
+      //   // // $set: updatedRecord // FIXME: not defined
+      //   $set: "updatedRecord" // FIXME: not defined
+      // }
+
+      // NOTE: ensure update onde found
+      { upsert: true },
+      (err, doc) => {
+        if (err) {
+          const msg = ("Failed update for id:", recId, JSON.stringify(err, undefined, 2));
+          console.error(msg);
+          return res.status(400).send(msg);
+        } else {
+          console.log("Done update for id", JSON.stringify(rec, undefined, 2));
+          res.send(doc)
+        }
+      })
   }
 })
 
@@ -132,8 +151,7 @@ route.get('/:id', (req, res) => {
     return res.status(400).send(msg);
   } else {
 
-    Feriado.findById(recId, {
-    }, (err, doc) => {
+    Feriado.findById(recId, {}, (err, doc) => {
       if (err) {
         const msg = ("Failed getOne for id:", recId, JSON.stringify(err, undefined, 2));
         console.error(msg);
