@@ -23,7 +23,8 @@ route.get('/', (req, res) => {
 
 
 route.post('/', (req, res) => {
-  var rec = {
+  console.warn("POST body", req.body);
+  var rec = new Feriado({
     motivo: req.body.motivo,
     tipo: req.body.tipo,
     dia: req.body.dia,
@@ -34,8 +35,9 @@ route.post('/', (req, res) => {
     opcional: req.body.opcional,
     religion: req.body.religion,
     origen: req.body.origen,
-  }
-  Feriado.save((err, doc) => {
+  });
+  // FIXME: delete: Feriado
+  rec.save((err, doc) => {
     if (err) {
       const msg = ("Failed saving / (doc)", JSON.stringify(err, undefined, 2));
       console.error(msg);
@@ -43,6 +45,40 @@ route.post('/', (req, res) => {
       return res.status(400).send(msg);
     } else {
       console.log("Done saving / (doc)", JSON.stringify(doc, undefined, 2));
+      res.send(doc)
+    }
+  })
+})
+
+// NOTE: for initial preload passing Feriado[]
+route.post('/many', (req, res) => {
+  console.warn("POST body", req.body);
+  var recs = req.body;
+  console.warn("POST body type : rect", typeof (recs));
+
+  // var rec = new Feriado({
+  //   motivo: req.body.motivo,
+  //   tipo: req.body.tipo,
+  //   dia: req.body.dia,
+  //   mes: req.body.mes,
+  //   id: req.body.id,
+  //   // // TODO:  optional fields
+  //   // original: req.body.original,
+  //   // opcional: req.body.opcional,
+  //   // religion: req.body.religion,
+  //   // origen: req.body.origen,
+  // });
+
+  // FIXME: delete: Feriado
+  // rec.insertMany((err, doc) => {
+  Feriado.insertMany(recs, (err, doc) => {
+    if (err) {
+      const msg = ("Failed Multisaving / (doc)", JSON.stringify(err, undefined, 2));
+      console.error(msg);
+      // NOTE:
+      return res.status(400).send(msg);
+    } else {
+      console.log("Done Multisaving / (doc)", JSON.stringify(doc, undefined, 2));
       res.send(doc)
     }
   })
@@ -86,6 +122,45 @@ route.put('/:id', (req, res) => {
 })
 
 
+// route.get('/by/:id', (req, res) => {
+route.get('/:id', (req, res) => {
+  // NOTE: refactor using recId
+  const recId = req.params.id;
+  console.warn("Get by ID:", recId);
+  if (!ObjId.isValid(recId)) {
+    const msg = ("Failed getOne due to invalid id:", recId);
+    console.error(msg);
+    return res.status(400).send(msg);
+  } else {
+    // var rec = {
+    //   motivo: req.body.motivo,
+    //   tipo: req.body.tipo,
+    //   dia: req.body.dia,
+    //   mes: req.body.mes,
+    //   id: req.body.id,
+    //   // TODO:  optional fields
+    //   original: req.body.original,
+    //   opcional: req.body.opcional,
+    //   religion: req.body.religion,
+    //   origen: req.body.origen,
+    // };
+
+    Feriado.findById(recId, {
+      // $set: updatedRecord
+    }, (err, doc) => {
+      if (err) {
+        const msg = ("Failed getOne for id:", recId, JSON.stringify(err, undefined, 2));
+        console.error(msg);
+        return res.status(400).send(msg);
+      } else {
+        console.log("Done getOne for id", JSON.stringify(recId, undefined, 2));
+        res.send(doc)
+      }
+    })
+  }
+})
+
+
 
 route.delete('/:id', (req, res) => {
   // NOTE: refactor using recId
@@ -105,11 +180,7 @@ route.delete('/:id', (req, res) => {
         res.send(doc)
       }
     })
-
-
   }
-
-
 })
 
 module.exports = route;

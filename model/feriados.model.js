@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 var Feriado = mongoose.model("Feriado", {
   motivo: {
     type: String,
-    required: true
+    required: false
   }, // String
   tipo: {
     type: String,
@@ -24,7 +24,7 @@ var Feriado = mongoose.model("Feriado", {
   // en caso de tipo = trasladable
   original: {
     type: String,
-    required: true
+    required: false
   }, // String // Fecha original en formato DD-MM
   // en caso de opcional
   opcional: {

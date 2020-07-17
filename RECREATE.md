@@ -32,6 +32,7 @@ nodemon index.js
 Feriado
 
 TODO: at this point, it's ignoring:
+
 * results for different year/month
 * "opcional" and related values
 
@@ -44,3 +45,19 @@ TODO: at this point, it's ignoring:
   > TODO: return error messages on every failed call
 
     > // NOTE:  return res.status(400).send(msg);
+
+## POST http://192.168.1.53:57016/feriados/many
+
+First load: use First-load.sh
+JSON body:
+
+``` sh
+# if made executable
+./First-load.sh
+# else, through shell
+sh ./First-load.sh
+```
+
+## GET list http://192.168.1.53:57016/feriados
+
+

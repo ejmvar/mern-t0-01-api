@@ -10,3 +10,5 @@ TODO: dotenv for
 MONGO_URI=mongodb://root:rootpassword@localhost:57017
 API_PORT=57016
 ```
+
+TODO: database indexing

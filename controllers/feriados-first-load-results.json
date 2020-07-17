@@ -1,0 +1,177 @@
+[
+  {
+      "_id": "5f12198d40c6011a3fa4edce",
+      "motivo": "Año Nuevo",
+      "tipo": "inamovible",
+      "dia": 1,
+      "mes": 1,
+      "id": "año-nuevo",
+      "__v": 0
+  },
+  {
+      "_id": "5f12198d40c6011a3fa4edcf",
+      "motivo": "Carnaval",
+      "tipo": "inamovible",
+      "dia": 24,
+      "mes": 2,
+      "id": "carnaval",
+      "__v": 0
+  },
+  {
+      "_id": "5f12198d40c6011a3fa4edd0",
+      "motivo": "Carnaval",
+      "tipo": "inamovible",
+      "dia": 25,
+      "mes": 2,
+      "id": "carnaval",
+      "__v": 0
+  },
+  {
+      "_id": "5f12198d40c6011a3fa4edd1",
+      "motivo": "Feriado Puente Turístico",
+      "tipo": "puente",
+      "dia": 23,
+      "mes": 3,
+      "id": "puente-turistico",
+      "__v": 0
+  },
+  {
+      "_id": "5f12198d40c6011a3fa4edd2",
+      "motivo": "Día Nacional de la Memoria por la Verdad y la Justicia",
+      "tipo": "inamovible",
+      "dia": 24,
+      "mes": 3,
+      "id": "memoria-verdad-justicia",
+      "__v": 0
+  },
+  {
+      "_id": "5f12198d40c6011a3fa4edd3",
+      "motivo": "Día del Veterano y de los Caídos en la Guerra de Malvinas",
+      "tipo": "inamovible",
+      "dia": 31,
+      "mes": 3,
+      "id": "veteranos-malvinas",
+      "__v": 0
+  },
+  {
+      "_id": "5f12198d40c6011a3fa4edd4",
+      "motivo": "Viernes Santo Festividad Cristiana",
+      "tipo": "inamovible",
+      "dia": 10,
+      "mes": 4,
+      "id": "viernes-santo",
+      "__v": 0
+  },
+  {
+      "_id": "5f12198d40c6011a3fa4edd5",
+      "motivo": "Día del Trabajador",
+      "tipo": "inamovible",
+      "dia": 1,
+      "mes": 5,
+      "id": "trabajador",
+      "__v": 0
+  },
+  {
+      "_id": "5f12198d40c6011a3fa4edd6",
+      "motivo": "Día de la Revolución de Mayo",
+      "tipo": "inamovible",
+      "dia": 25,
+      "mes": 5,
+      "id": "revolucion-mayo",
+      "__v": 0
+  },
+  {
+      "_id": "5f12198d40c6011a3fa4edd7",
+      "motivo": "Paso a la Inmortalidad del Gral. Don Martín Güemes",
+      "tipo": "trasladable",
+      "original": "17-06",
+      "dia": 15,
+      "mes": 6,
+      "id": "martin-guemes",
+      "__v": 0
+  },
+  {
+      "_id": "5f12198d40c6011a3fa4edd8",
+      "motivo": "Paso a la Inmortalidad del General Manuel Belgrano",
+      "tipo": "inamovible",
+      "dia": 20,
+      "mes": 6,
+      "id": "belgrano",
+      "__v": 0
+  },
+  {
+      "_id": "5f12198d40c6011a3fa4edd9",
+      "motivo": "Día de la Independencia",
+      "tipo": "inamovible",
+      "dia": 9,
+      "mes": 7,
+      "id": "independencia",
+      "__v": 0
+  },
+  {
+      "_id": "5f12198d40c6011a3fa4edda",
+      "motivo": "Feriado Puente Turístico",
+      "tipo": "puente",
+      "dia": 10,
+      "mes": 7,
+      "id": "puente-turistico",
+      "__v": 0
+  },
+  {
+      "_id": "5f12198d40c6011a3fa4eddb",
+      "motivo": "Paso a la Inmortalidad del General José de San Martín",
+      "tipo": "trasladable",
+      "original": "17-08",
+      "dia": 17,
+      "mes": 8,
+      "id": "san-martin",
+      "__v": 0
+  },
+  {
+      "_id": "5f12198d40c6011a3fa4eddc",
+      "motivo": "Día del Respeto a la Diversidad Cultural",
+      "tipo": "trasladable",
+      "original": "12-10",
+      "dia": 12,
+      "mes": 10,
+      "id": "diversidad",
+      "__v": 0
+  },
+  {
+      "_id": "5f12198d40c6011a3fa4eddd",
+      "motivo": "Día de la Soberanía Nacional",
+      "tipo": "trasladable",
+      "original": "20-11",
+      "dia": 23,
+      "mes": 11,
+      "id": "soberania-nacional",
+      "__v": 0
+  },
+  {
+      "_id": "5f12198d40c6011a3fa4edde",
+      "motivo": "Feriado Puente Turístico",
+      "tipo": "puente",
+      "dia": 7,
+      "mes": 12,
+      "id": "puente-turistico",
+      "__v": 0
+  },
+  {
+      "_id": "5f12198d40c6011a3fa4eddf",
+      "motivo": "Inmaculada Concepción de María",
+      "tipo": "inamovible",
+      "dia": 8,
+      "mes": 12,
+      "id": "inmaculada-maria",
+      "__v": 0
+  },
+  {
+      "_id": "5f12198d40c6011a3fa4ede0",
+      "motivo": "Navidad",
+      "tipo": "inamovible",
+      "dia": 25,
+      "mes": 12,
+      "id": "navidad",
+      "__v": 0
+  }
+]
