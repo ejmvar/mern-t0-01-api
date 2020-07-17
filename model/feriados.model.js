@@ -51,3 +51,7 @@ var Feriado = mongoose.model("Feriado", {
   // "religion": "judaísmo", // Ejemplo religion
   // "origen": "armenia" // Ejemplo origen
 });
+
+module.exports = {
+  Feriado
+};
