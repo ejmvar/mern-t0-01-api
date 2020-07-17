@@ -1,6 +1,31 @@
 # API server
 
+## Configuration
+
+MONGODB_URI: http://192.168.1.53:57016/feriados/
+|      parameter      |  value  |         description          |
+| ------------------- | ------- | ---------------------------- |
+| http://192.168.1.53 | IP addr | where backend api is running |
+| 57016               | IP port | from "API_PORT"              |
+
+Methods:
+| verb |      path      |         description          |
+| ---- | -------------- | ---------------------------- |
+| GET  | /feriados      | retrieve all records         |
+| GET  | /feriados/:id  | retrieve by "_id"            |
+| PUT  | /feriados      | update by "_id"              |
+| POST | /feriados/many | upload array of JSON objects |
+
 ## Preload
+
+## Get all records
+
+## Get one record
+
+``` sh
+curl --location --request GET 'http://192.168.1.53:57016/feriados/5f12198d40c6011a3fa4edce' \
+--data-raw ''
+```
 
 ## Update 1 record
 
