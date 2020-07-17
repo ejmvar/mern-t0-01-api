@@ -31,5 +31,8 @@ nodemon index.js
 
 Feriado
 
-  // NOTE: may be forced if not available (INTERESANTE!)
+## TODO (and other notes)
 
+  > // NOTE: may be forced if not available (INTERESANTE!)
+
+  > // TODO:  optional fields
