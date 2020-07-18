@@ -126,7 +126,9 @@ route.put('/:id', (req, res) => {
       // }
 
       // NOTE: ensure update onde found
-      { upsert: true },
+      { upsert: true ,
+        new: true , // NOTE: if you want to receive NEW updated record, instead of the original one
+      },
       (err, doc) => {
         if (err) {
           const msg = ("Failed update for id:", recId, JSON.stringify(err, undefined, 2));
