@@ -57,3 +57,6 @@ TODO: better interface/Schema/Model integration (typegoose)
 NOTE: ADD/DELETE: are there just for study reasons
 
         new: true , // NOTE: if you want to receive NEW updated record, instead of the original one
+
+TODO: retry mongoose connection to database if initially failed
+

@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 // TODO: dotenv
-const MONGO_URI = "mongodb://root:rootpassword@localhost:57017"
+const MONGO_URI = "mongodb://root:rootpassword@localhost:57017";
 
 mongoose.connect(MONGO_URI, {
     useNewUrlParser: true,
