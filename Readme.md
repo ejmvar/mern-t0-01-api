@@ -1,5 +1,26 @@
 # API server
 
+## Fast start
+
+> run server
+
+``` sh
+node index.js
+```
+
+To build with auto rebuild for dev/testing
+
+``` sh
+nodemon index.js
+```
+
+TODO: for deployment
+
+``` sh
+TARGET="here your target for production"
+cp -a . ${TARGET}
+```
+
 ## Configuration
 
 MONGODB_URI: http://192.168.1.53:57016/feriados/
@@ -58,5 +79,7 @@ NOTE: ADD/DELETE: are there just for study reasons
 
         new: true , // NOTE: if you want to receive NEW updated record, instead of the original one
 
-TODO: retry mongoose connection to database if initially failed
-
+TODO: notes on retry if db not accessible
+NOTE: retry mongoose connection to database if initially failed
+NOTE: Keep status of db connection
+NOTE: Notify about status of db connection
