@@ -51,3 +51,6 @@ TODO: database indexing
 *    Feriado.findByIdAndUpdate(recId, {
 
 *      // TODO: test if this updated existing data
+
+TODO: better interface/Schema/Model integration (typegoose)
+

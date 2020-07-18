@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 
+// TODO: separate Schema
 var Feriado = mongoose.model("Feriado", {
   motivo: {
     type: String,
@@ -50,7 +51,11 @@ var Feriado = mongoose.model("Feriado", {
   // "opcional": "religion",
   // "religion": "judaísmo", // Ejemplo religion
   // "origen": "armenia" // Ejemplo origen
-});
+}
+,
+// NOTE: fix/force MongoDB lowercase/plural Collection name mangling
+"Feriados"
+);
 
 module.exports = {
   Feriado
