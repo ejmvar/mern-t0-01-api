@@ -1,5 +1,25 @@
 # API server
 
+## Additional docs about Frontend+Backend setup
+
+See the page at "./docs":
+
+``` sh
+npm install -g serve
+serve -s build
+
+# Drop frontend so it's served as static pages from "./build" path:
+cp -a ${ReactBuildRoot} build
+
+# Save at port "12345"
+serve -s build -l 12345
+
+# Serve from a docker image
+docker build .
+docker-compose up -d
+
+```
+
 ## Fast start
 
 > run server
