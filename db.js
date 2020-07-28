@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-// TODO: dotenv
+// NOTE: could use dotenv
 const MONGO_URI = "mongodb://root:rootpassword@localhost:57017";
 
 mongoose.connect(MONGO_URI, {
