@@ -1,6 +1,5 @@
 const mongoose = require('mongoose');
 
-// TODO: separate Schema
 var Feriado = mongoose.model("Feriado", {
   motivo: {
     type: String,
@@ -32,7 +31,7 @@ var Feriado = mongoose.model("Feriado", {
     type: String,
     required: false
   }, // String // Propiedad con valor de opción
-  // NOTE: may be forced if not available (INTERESANTE!)
+  // NOTE: may be forced if not available 
   // opcional: {
   //   type: String,
   //   get: (): undefined => undefined,

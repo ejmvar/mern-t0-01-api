@@ -1,5 +1,3 @@
-// import { Schema } from 'mongoose';
-// const feriadoSchema:Schema
 
 import { Document, Model } from 'mongoose';
 

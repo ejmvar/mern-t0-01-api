@@ -40,7 +40,6 @@ route.post('/', (req, res) => {
     if (err) {
       const msg = ("Failed saving / (doc)", JSON.stringify(err, undefined, 2));
       console.error(msg);
-      // NOTE:
       return res.status(400).send(msg);
     } else {
       console.log("Done saving / (doc)", JSON.stringify(doc, undefined, 2));
@@ -59,7 +58,6 @@ route.post('/many', (req, res) => {
     if (err) {
       const msg = ("Failed Multisaving / (doc)", JSON.stringify(err, undefined, 2));
       console.error(msg);
-      // NOTE:
       return res.status(400).send(msg);
     } else {
       console.log("Done Multisaving / (doc)", JSON.stringify(doc, undefined, 2));
