@@ -12,7 +12,6 @@ route.get('/', (req, res) => {
     if (err) {
       msg = ("Failed getting / (all)", JSON.stringify(err, undefined, 2));
       console.error(msg);
-      // NOTE:
       return res.status(400).send(msg);
     } else {
       console.log("Done getting / (all)", JSON.stringify(doc, undefined, 2));
@@ -23,20 +22,20 @@ route.get('/', (req, res) => {
 
 
 route.post('/', (req, res) => {
-  console.warn("POST body", req.body);
+  console.log("POST body", req.body);
   var rec = new Feriado({
     motivo: req.body.motivo,
     tipo: req.body.tipo,
     dia: req.body.dia,
     mes: req.body.mes,
     id: req.body.id,
-    // TODO:  optional fields
+    // NOTE:  optional fields
     original: req.body.original,
     opcional: req.body.opcional,
     religion: req.body.religion,
     origen: req.body.origen,
   });
-  // FIXME: delete: Feriado
+
   rec.save((err, doc) => {
     if (err) {
       const msg = ("Failed saving / (doc)", JSON.stringify(err, undefined, 2));
@@ -50,27 +49,12 @@ route.post('/', (req, res) => {
   })
 })
 
-// NOTE: for initial preload passing Feriado[]
+// NOTE: for initial preload passing Feriado[] : Not in use
 route.post('/many', (req, res) => {
-  console.warn("POST body", req.body);
+  console.log("POST body", req.body);
   var recs = req.body;
-  console.warn("POST body type : rect", typeof (recs));
+  // NOTE: take a look at the structure from "Record.md"
 
-  // var rec = new Feriado({
-  //   motivo: req.body.motivo,
-  //   tipo: req.body.tipo,
-  //   dia: req.body.dia,
-  //   mes: req.body.mes,
-  //   id: req.body.id,
-  //   // // TODO:  optional fields
-  //   // original: req.body.original,
-  //   // opcional: req.body.opcional,
-  //   // religion: req.body.religion,
-  //   // origen: req.body.origen,
-  // });
-
-  // FIXME: delete: Feriado
-  // rec.insertMany((err, doc) => {
   Feriado.insertMany(recs, (err, doc) => {
     if (err) {
       const msg = ("Failed Multisaving / (doc)", JSON.stringify(err, undefined, 2));
@@ -86,11 +70,10 @@ route.post('/many', (req, res) => {
 
 
 route.put('/:id', (req, res) => {
-  // NOTE: refactor using recId
   const recId = req.params.id;
   const recBdy = req.body;
-  console.warn("PUT ID:", recId);
-  console.warn("PUT BODY:", recBdy);
+  console.log("PUT ID:", recId);
+  console.log("PUT BODY:", recBdy);
   if (!ObjId.isValid(recId)) {
     const msg = ("Failed update due to invalid id:", recId);
     console.error(msg);
@@ -102,7 +85,7 @@ route.put('/:id', (req, res) => {
       dia: req.body.dia,
       mes: req.body.mes,
       id: req.body.id,
-      // TODO:  optional fields
+      // NOTE:  optional fields
       original: req.body.original,
       opcional: req.body.opcional,
       religion: req.body.religion,
@@ -110,22 +93,11 @@ route.put('/:id', (req, res) => {
     });
 
     Feriado.findByIdAndUpdate(
-      // NOTE: Search object
-      //recId, 
       {
         _id: recId
       },
-      // NOTE: Update/Replacement object
-      // rec.body,
       recBdy,
-      // {
-      //   // // Feriado.findOneAndReplace(recId, {
-      //   // // TODO: test if this updated existing data
-      //   // // $set: updatedRecord // FIXME: not defined
-      //   $set: "updatedRecord" // FIXME: not defined
-      // }
 
-      // NOTE: ensure update onde found
       { upsert: true ,
         new: true , // NOTE: if you want to receive NEW updated record, instead of the original one
       },
@@ -144,15 +116,13 @@ route.put('/:id', (req, res) => {
 
 
 route.get('/:id', (req, res) => {
-  // NOTE: refactor using recId
   const recId = req.params.id;
-  console.warn("Get by ID:", recId);
+  console.log("Get by ID:", recId);
   if (!ObjId.isValid(recId)) {
     const msg = ("Failed getOne due to invalid id:", recId);
     console.error(msg);
     return res.status(400).send(msg);
   } else {
-
     Feriado.findById(recId, {}, (err, doc) => {
       if (err) {
         const msg = ("Failed getOne for id:", recId, JSON.stringify(err, undefined, 2));
@@ -169,7 +139,6 @@ route.get('/:id', (req, res) => {
 
 
 route.delete('/:id', (req, res) => {
-  // NOTE: refactor using recId
   const recId = req.params.id;
   if (!ObjId.isValid(recId)) {
     const msg = ("Failed delete due to invalid id:", recId);
